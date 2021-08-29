@@ -1,10 +1,11 @@
 import { AuthProvider } from './context/authContext';
+import Signup from './components/Authentication/Signup';
 
 function App() {
   return (
-    <>
-    <h1>Hola Mundo</h1>
-    </>
+    <AuthProvider>
+      <Signup />
+    </AuthProvider>
   );
 }
 
