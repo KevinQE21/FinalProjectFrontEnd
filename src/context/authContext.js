@@ -31,6 +31,10 @@ function AuthProvider({ children }){
         return firebaseAuth.sendPasswordResetEmail(email);
     }
 
+    function logout(){
+        return firebaseAuth.signOut();
+    }    
+
     const values = {
         signup,
         currentUser,
