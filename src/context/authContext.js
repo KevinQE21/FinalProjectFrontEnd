@@ -27,10 +27,15 @@ function AuthProvider({ children }){
         return firebaseAuth.signInWithEmailAndPassword(email, password);
     }
 
+    function resetPassword(email){
+        return firebaseAuth.sendPasswordResetEmail(email);
+    }
+
     const values = {
         signup,
         currentUser,
-        login 
+        login,
+        resetPassword, 
     }
 
     return (
