@@ -73,7 +73,7 @@ function Login(){
             </Card.Text>
             </Card.Body>
         </Card>
-    )
+    );
 }
 
 export default Login;
