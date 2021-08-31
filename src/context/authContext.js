@@ -23,9 +23,14 @@ function AuthProvider({ children }){
         return firebaseAuth.createUserWithEmailAndPassword(email, password);
     };
 
+    function login(email, password){
+        return firebaseAuth.signInWithEmailAndPassword(email, password);
+    }
+
     const values = {
         signup,
         currentUser,
+        login 
     }
 
     return (
