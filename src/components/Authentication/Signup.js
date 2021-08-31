@@ -7,8 +7,8 @@ function Signup(){
     const passwordRef = useRef();
     const confirmPasswordRef = useRef();
     const [ error, setError ] = useState('');
-    const [ loading, setLoading ] = useState(false);
-    const { signup, currentUser } = useAuth(); 
+    const [ loading, setLoading ] = useState('');
+    const { signup } = useAuth(); 
 
     async function handleSubmit(e){
         e.preventDefault();
@@ -20,11 +20,9 @@ function Signup(){
             setError('');
             setLoading(true);
             await signup(emailRef.current.value, passwordRef.current.value);  
-            console.log(currentUser);          
         } catch (e) {
-            console.log(e);
-            setLoading(false);
             setError(`Error: ${e.message}`);
+            setLoading(false);
         }
     }
 
@@ -33,7 +31,6 @@ function Signup(){
             <Card.Body>
                 <h1>Sign Up</h1>
                 { error && <Alert variant="danger">{ error }</Alert> }
-                { currentUser && <Alert variant="success">{ currentUser.email }</Alert> }
                 <Form onSubmit={ handleSubmit }>                    
                     <Form.Group className="mb-3" controlId="formEmail">
                         <Form.Label>Email Address</Form.Label>
@@ -70,6 +67,9 @@ function Signup(){
                         Sign Up
                     </Button>
                 </Form>
+                <Card.Text className="text-muted text-center my-3"> 
+                    Got an account? Log In
+                </Card.Text>
             </Card.Body>
         </Card>
     );

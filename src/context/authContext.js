@@ -11,20 +11,25 @@ function AuthProvider({ children }){
     const [ currentUser, setCurrentUser ] = useState();
     const [ loading, setLoading ] = useState(true);
 
-    function singup(email, password){
-        return firebaseAuth.createUserWithEmailAndPassword(email, password);
-    };
-
     useEffect(() => {
         return firebaseAuth.onAuthStateChanged(user =>
             {
                 setCurrentUser( user )
                 setLoading(false);
             });        
-    }, []);     
+    }, []);
+
+    function signup(email, password){
+        return firebaseAuth.createUserWithEmailAndPassword(email, password);
+    };
+
+    const values = {
+        signup,
+        currentUser,
+    }
 
     return (
-        <authContext.Provider value={{ singup, currentUser }}>
+        <authContext.Provider value={ values}>
             { !loading && children }
         </authContext.Provider>
     );
