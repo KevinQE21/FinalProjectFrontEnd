@@ -33,7 +33,11 @@ function AuthProvider({ children }){
 
     function logout(){
         return firebaseAuth.signOut();
-    }    
+    }
+    
+    function updateEmail(email){
+        return firebaseAuth.updateEmail();
+    }
 
     const values = {
         signup,
