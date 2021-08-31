@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import { Alert, Button, Card, Form } from 'react-bootstrap';
 import { useAuth } from '../../context/authContext';
 
-function ForgorPassword(){
+function ForgotPassword(){
     const emailRef = useRef();
     const { resetPassword } = useAuth();
     const [ error, setError ] = useState('');
@@ -62,4 +62,4 @@ function ForgorPassword(){
     );
 }
 
-export default ForgorPassword;
+export default ForgotPassword;
