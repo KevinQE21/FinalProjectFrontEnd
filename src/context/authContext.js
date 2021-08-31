@@ -36,14 +36,21 @@ function AuthProvider({ children }){
     }
     
     function updateEmail(email){
-        return firebaseAuth.updateEmail();
+        return firebaseAuth.updateEmail(email);
+    }
+
+    function updatePassword(password){
+        return firebaseAuth.updatePassword(password)
     }
 
     const values = {
         signup,
         currentUser,
         login,
-        resetPassword, 
+        resetPassword,
+        logout,
+        updateEmail,
+        updatePassword, 
     }
 
     return (
