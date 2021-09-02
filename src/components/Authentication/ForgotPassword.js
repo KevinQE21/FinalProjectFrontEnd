@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { Alert, Button, Card, Form } from 'react-bootstrap';
 import { useAuth } from '../../context/authContext';
 import { useHistory } from 'react-router-dom';
+import NavigationBar from '../NavBar/NavigationBar';
 
 function ForgotPassword(){
     const emailRef = useRef();
@@ -28,34 +29,36 @@ function ForgotPassword(){
         }        
     }
 
-    return (            
-        <Card className="w-75 mx-auto mt-5">
-            <Card.Body>
-            <h1 className="display-4 text-center my-3">Password Reset</h1>
-            { error && error !== '' && <Alert variant="danger">{ error }</Alert> }
-            { message && message !== '' && <Alert variant="success">{ message }</Alert> }
-                <Form onSubmit={ handleSubmit }>
-                    <Form.Group className="mb-3" controlId="formEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control 
-                                ref={ emailRef } 
-                                type="email" 
-                                placeholder="Enter email" 
-                                autoComplete="off" 
-                                required />
-                    </Form.Group>
+    return (        
+        <>
+            <NavigationBar />
+            <Card className="w-75 mx-auto mt-5">
+                <Card.Body>
+                <h1 className="display-4 text-center my-3">Password Reset</h1>
+                { error && error !== '' && <Alert variant="danger">{ error }</Alert> }
+                { message && message !== '' && <Alert variant="success">{ message }</Alert> }
+                    <Form onSubmit={ handleSubmit }>
+                        <Form.Group className="mb-3" controlId="formEmail">
+                        <Form.Label>Email address</Form.Label>
+                        <Form.Control 
+                                    ref={ emailRef } 
+                                    type="email" 
+                                    placeholder="Enter email" 
+                                    autoComplete="off" 
+                                    required />
+                        </Form.Group>
 
-                    <Button 
-                            className="w-100" 
-                            variant="dark" 
-                            type="submit" 
-                            disabled={ loading }>
-                        Reset password
-                    </Button>
-                </Form>
-            </Card.Body>
-        </Card>
-        
+                        <Button 
+                                className="w-100" 
+                                variant="dark" 
+                                type="submit" 
+                                disabled={ loading }>
+                            Reset password
+                        </Button>
+                    </Form>
+                </Card.Body>
+            </Card>
+        </>            
     );
 }
 
