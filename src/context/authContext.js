@@ -36,11 +36,11 @@ function AuthProvider({ children }){
     }
     
     function updateEmail(email){
-        return firebaseAuth.updateEmail(email);
+        return currentUser.updateEmail(email);
     }
 
     function updatePassword(password){
-        return firebaseAuth.updatePassword(password)
+        return currentUser.updatePassword(password);
     }
 
     const values = {
