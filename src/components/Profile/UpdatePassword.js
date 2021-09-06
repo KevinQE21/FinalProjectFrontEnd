@@ -8,7 +8,7 @@ import { HiDatabase } from 'react-icons/hi';
 function UpdatePassword() {
     const newPasswordRef = useRef();
     const confirmNewPasswordRef = useRef();
-    const { currentUser, updateEmail, updatePassword } = useAuth();
+    const { updatePassword } = useAuth();
     const [ error, setError ] = useState('');
     const [ message, setMessage ] = useState('');
     const [ loading, setLoading ] = useState('');

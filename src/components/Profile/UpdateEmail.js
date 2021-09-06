@@ -6,10 +6,8 @@ import NavigationBar from "../NavBar/NavigationBar";
 import { HiDatabase } from 'react-icons/hi'; 
 
 function UpdateEmail(){
-    const newEmailRef = useRef();
-    const newPasswordRef = useRef();
-    const confirmNewPasswordRef = useRef();
-    const { currentUser, updateEmail, updatePassword } = useAuth();
+    const newEmailRef = useRef();   
+    const { currentUser, updateEmail } = useAuth();
     const [ error, setError ] = useState('');
     const [ message, setMessage ] = useState('');
     const [ loading, setLoading ] = useState('');

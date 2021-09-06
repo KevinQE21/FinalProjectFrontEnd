@@ -1,34 +1,28 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
-import { HiCode, HiOutlineLogin, HiCog } from 'react-icons/hi';
-import { useState } from 'react';
+import { HiOutlineFingerPrint, HiOutlineLogin, HiCog } from 'react-icons/hi';
 
 function NavigationBar(){
     const { currentUser, logout } = useAuth();
-    const [error, setError] = useState('');
-    const [loading, setLoading] = useState('');
     const history = useHistory(); 
 
     async function handleLogout(e){
         e.preventDefault();
 
         try {
-            setError('');
-            setLoading(true);
             await logout();
             history.push('/');
         }
         catch (e){
-            setError(e.message);
-            setLoading(false);
+            console.log(e);
         }
     }
 
     return (
         <Navbar bg="dark" variant="dark" expand="sm">
             <Container>          
-                <Navbar.Brand as={ Link } to="/">Code News <HiCode /> </Navbar.Brand>
+                <Navbar.Brand as={ Link } to="/">Spy-On-Web <HiOutlineFingerPrint /> </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto">
